@@ -1158,3 +1158,24 @@ li {
     background-color: #7450fe;
     color: #fff;
 }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 10px;
+    grid-template-areas:
+      "left left right-top"
+      "left left right-bottom";
+  }
+  
+  .left { grid-area: left; }
+  
+  .right-top { grid-area: right-top; }
+  
+  .right-bottom { grid-area: right-bottom; }
+  
+  #banner {
+    transform:translateY(180px);
+    z-index: 1;
+  }
