@@ -1,31 +1,4 @@
-@media (min-width: 320px) and (max-width: 575px){
-    .footer-area {
-        flex-direction: column-reverse;
-        align-items: center;
-    }
-
-    .galery{
-        padding-left: 1em;
-        padding-right: 1em;
-    }
-
-    #headline {
-        font-size: 4rem;
-    }
-
-    #banner {
-        transform:translateY(200px);
-        z-index: 1;
-    }
-}
-
-
 @media (min-width: 992px) and (max-width: 1199px) {
-    .galery{
-        padding-left: 1em;
-        padding-right: 1em;
-    }
-
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: 15px;
         padding-left: 15px;
@@ -46,42 +19,22 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-
-    .galery{
-        padding-left: 1em;
-        padding-right: 1em;
-    }
-    
     .header_area {
         height: 70px;
         padding: 0 30px;
     }
     .navbar-toggler {
-        border: 2px solid #fff;
+        border: 2px solid black;
         margin: 18px 0;
     }
     .navbar-toggler span {
-        color: #fff;
+        color: black;
     }
     #fancyNav {
-        background: #7450fe;
-        background: -webkit-linear-gradient(to right, #7450fe, #21d397);
-        background: -webkit-linear-gradient(left, #7450fe, #21d397);
-        background: linear-gradient(to right, #7450fe, #21d397);
+        background: white;
         padding: 15px;
         border-radius: 0 0 3px 3px;
         margin-top: -2px;
-    }
-    .fancy-search-and-shop-area {
-        margin-left: 30px;
-        margin-top: 15px;
-    }
-    .fancy-search-form {
-        height: 70px;
-        padding: 0 30px;
-    }
-    .fancy-search-form form input {
-        font-size: 30px;
     }
     .search-close-btn {
         top: 4px;
@@ -124,40 +77,23 @@
         padding: 0 15px;
     }
     .navbar-toggler {
-        border: 2px solid #fff;
+        border: 2px solid black;
         margin: 18px 0;
     }
     .navbar-toggler span {
-        color: #fff;
+        color: black;
     }
     #fancyNav {
-        background: #7450fe;
-        background: -webkit-linear-gradient(to right, #7450fe, #21d397);
-        background: -webkit-linear-gradient(left, #7450fe, #21d397);
-        background: linear-gradient(to right, #7450fe, #21d397);
+        background:white;
         padding: 15px 0;
         border-radius: 0 0 3px 3px;
         margin-top: -2px;
-    }
-    .fancy-search-and-shop-area {
-        margin-left: 30px;
-        margin-top: 15px;
-    }
-    .fancy-search-form {
-        height: 70px;
-        padding: 0 30px;
-    }
-    .fancy-search-form form input {
-        font-size: 30px;
     }
     .search-close-btn {
         top: 4px;
     }
     .fancy-hero-content h2 {
         font-size: 24px;
-        margin-bottom: 30px;
-    }
-    .video-overview > a {
         margin-bottom: 30px;
     }
     .single-top-feature {
