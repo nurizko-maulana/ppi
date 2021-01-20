@@ -1,5 +1,22 @@
 @media (min-width: 320px) and (max-width: 575px){
-    
+    .footer-area {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .galery{
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    #headline {
+        font-size: 4rem;
+    }
+
+    #banner {
+        transform:translateY(200px);
+        z-index: 1;
+    }
 }
 
 
