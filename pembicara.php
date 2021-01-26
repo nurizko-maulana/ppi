@@ -125,97 +125,61 @@
 
     <div class="p-5">
       <div class="container-fluid">
-        <div class="col">
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="d-flex flex-column align-items-center">
-                <img
-                  src="https://uploads-ssl.webflow.com/5ff202b90d901fbd6d262fb2/5ff202b90dfbf4294c0c8c5f_rahul.jpg"
-                  loading="lazy"
-                  alt=""
-                  class="mb-2"
-                />
-                <span>Joshua Kushner</span>
-                <p class="text-secondary">Founder of Thrive Capital</p>
-              </div>
-            </div>
-            <!-- /.col-sm-4 -->
-            <div class="col-sm-4">
-              <div class="d-flex flex-column align-items-center">
-                <img
-                  src="https://uploads-ssl.webflow.com/5ff202b90d901fbd6d262fb2/5ff202b90dfbf4294c0c8c5f_rahul.jpg"
-                  loading="lazy"
-                  alt=""
-                  class="mb-2"
-                />
-                <span>Joshua Kushner</span>
-                <p class="text-secondary">Founder of Thrive Capital</p>
-              </div>
-            </div>
-            <!-- /.col-sm-4 -->
-            <div class="col-sm-4">
-              <div class="d-flex flex-column align-items-center">
-                <img
-                  src="https://uploads-ssl.webflow.com/5ff202b90d901fbd6d262fb2/5ff202b90dfbf4294c0c8c5f_rahul.jpg"
-                  loading="lazy"
-                  alt=""
-                  class="mb-2"
-                />
-                <span>Joshua Kushner</span>
-                <p class="text-secondary">Founder of Thrive Capital</p>
-              </div>
-            </div>
-            <!-- /.col-sm-4 -->
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.col -->
-
-        <div class="col">
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="d-flex flex-column align-items-center">
-                <img
-                  src="https://uploads-ssl.webflow.com/5ff202b90d901fbd6d262fb2/5ff202b90dfbf4294c0c8c5f_rahul.jpg"
-                  loading="lazy"
-                  alt=""
-                  class="mb-2"
-                />
-                <span>Joshua Kushner</span>
-                <p class="text-secondary">Founder of Thrive Capital</p>
-              </div>
-            </div>
-            <!-- /.col-sm-4 -->
-            <div class="col-sm-4">
-              <div class="d-flex flex-column align-items-center">
-                <img
-                  src="https://uploads-ssl.webflow.com/5ff202b90d901fbd6d262fb2/5ff202b90dfbf4294c0c8c5f_rahul.jpg"
-                  loading="lazy"
-                  alt=""
-                  class="mb-2"
-                />
-                <span>Joshua Kushner</span>
-                <p class="text-secondary">Founder of Thrive Capital</p>
-              </div>
-            </div>
-            <!-- /.col-sm-4 -->
-            <div class="col-sm-4">
-              <div class="d-flex flex-column align-items-center">
-                <img
-                  src="https://uploads-ssl.webflow.com/5ff202b90d901fbd6d262fb2/5ff202b90dfbf4294c0c8c5f_rahul.jpg"
-                  loading="lazy"
-                  alt=""
-                  class="mb-2"
-                />
-                <span>Joshua Kushner</span>
-                <p class="text-secondary">Founder of Thrive Capital</p>
-              </div>
-            </div>
-            <!-- /.col-sm-4 -->
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.col -->
+        <?php 
+        include "config/connection.php"; 
+        $sql = "SELECT*FROM speaker"; 
+        $query = mysqli_query($conn, $sql);
+        $count = mysqli_num_rows($query);
+        $current = 1;
+        while($data = mysqli_fetch_assoc($query)){
+            //sql
+            $id = $data['id_speaker']; 
+            $id_event = $data['id_event']; 
+            $asal_speaker = $data['asal_speaker']; 
+            $sql_event = "SELECT*FROM event WHERE id_event = $id_event"; 
+            $query_event = mysqli_query($conn, $sql_event); 
+            $data_event = mysqli_fetch_assoc($query_event); 
+            if(empty($asal_speaker)){
+                $prov = ""; 
+            } else {
+                $sql_prov = "SELECT*FROM provinsi WHERE id_provinsi=$asal_speaker"; 
+                $query_prov = mysqli_query($conn, $sql_prov); 
+                $data_prov = mysqli_fetch_assoc($query_prov); 
+                $prov = $data_prov['provinsi']; 
+            }
+            if(empty($data['tentang_speaker'])){
+                $note = ""; 
+            } else {
+                $note = $data['tentang_speaker']; 
+            }
+            //application
+            if (($current-1)%3 == 0){
+                echo "<div class='col'>"; 
+                    echo "<div class='row'>"; 
+            }
+                        echo "<div class='col-sm-4'>"; 
+                            echo "<div class='d-flex flex-column align-items-center'>";
+                                echo "<img
+                                src='img/uploads/speaker/".$data['img_speaker']."'
+                                loading='lazy'
+                                alt=''
+                                class='mb-2'
+                                />"; 
+                                echo "<span>".$data['nama_speaker']."</span>"; 
+                                echo "<p class='text-secondary'>$note</p>"; 
+                            echo "</div>"; 
+                        echo "</div>"; 
+            if($current%3 == 0){
+                    echo "</div>"; 
+                echo "</div>"; 
+                $current = 0; 
+            }
+            $current++; 
+        } 
+        if($count%3!=0){
+            echo "</div></div>"; 
+        }
+        ?>
       </div>
       <!-- /.container -->
     </div>

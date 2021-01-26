@@ -11,7 +11,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>PPI Edufest | Pembicara</title>
+    <title>PPI Edufest | FAQ</title>
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -52,9 +52,7 @@
               <div class="collapse navbar-collapse" id="fancyNav">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
-                    <a class="nav-link" href="index.html">
-                      Home
-                    </a>
+                    <a class="nav-link" href="index.html"> Home </a>
                   </li>
 
                   <li class="nav-item">
@@ -73,7 +71,6 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Content Area Start ***** -->
-    <div class="container-fluid"></div>
     <!-- First Container Start -->
     <div class="container-fluid bg-1 text-center mb-5">
       <img
@@ -83,144 +80,66 @@
         id="banner"
         width="600"
       />
-      <h1 id="headline" class="margin font-weight-bold">
-        Bintang Tamu <br />
-        Special
-      </h1>
+      <h1 id="headline" class="margin font-weight-bold">FAQ</h1>
     </div>
+
+    <!-- FAQ LIST Start -->
+    <section
+      class="accordion-section clearfix margin-up"
+      aria-label="Question Accordions"
+    >
+      <div class="container">
+        
+        <div
+          class="panel-group"
+          id="accordion"
+          role="tablist"
+          aria-multiselectable="true"
+        >
+        <?php 
+        include "config/connection.php"; 
+        $sql = "SELECT*FROM faq"; 
+        $query = mysqli_query($conn, $sql); 
+        while ($data = mysqli_fetch_assoc($query)){
+        ?>
+        <div class="panel panel-default">
+            <div class="panel-heading p-3 mb-3" role="tab" id="heading0">
+              <h3 class="panel-title">
+                <a
+                  class="collapsed"
+                  role="button"
+                  title=""
+                  data-toggle="collapse"
+                  data-parent="#accordion"
+                  href="#collapse0"
+                  aria-expanded="true"
+                  aria-controls="collapse0"
+                >
+                  <?php echo $data['question_faq']; ?>
+                </a>
+              </h3>
+            </div>
+            <div
+              id="collapse0"
+              class="panel-collapse collapse"
+              role="tabpanel"
+              aria-labelledby="heading0"
+            >
+              <div class="panel-body px-3 mb-4">
+                <ul>
+                  <li>
+                      <?php echo $data['answer_faq']; ?>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </div>
+
+        <?php } ?>   
+      </div>
+    </section>
+    <!-- FAQ LIST End -->
     <!-- First Container End -->
-
-    <!-- Photo Section Start -->
-    <!-- TODO add guest name animation hover -->
-    <div class="grid-container containter-fluid mb-5 galery">
-      <div class="left">
-        <img
-          src="https://uploads-ssl.webflow.com/5ff202b90d901fbd6d262fb2/5ff202b90dfbf411540c8c2d_christian.jpg"
-          width=""
-          alt=""
-          class=""
-        />
-      </div>
-      <div class="right-top">
-        <img
-          src="https://uploads-ssl.webflow.com/5ff202b90d901fbd6d262fb2/5ff202b90dfbf471d60c8c30_jan.jpg"
-          alt=""
-          class=""
-        />
-      </div>
-      <div class="right-bottom">
-        <img
-          src="https://uploads-ssl.webflow.com/5ff202b90d901fbd6d262fb2/5ff202b90dfbf43fb00c8c28_charlette.jpg"
-          alt=""
-          class=""
-        />
-      </div>
-    </div>
-    <!-- Photo Section End -->
-
-    <!-- Delegation Start -->
-    <div class="container-fluid bg-1 text-center mb-5">
-      <h1 class="margin font-weight-bold">Delegasi PPI Negara</h1>
-    </div>
-
-    <div class="p-5">
-      <div class="container-fluid">
-        <div class="col">
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="d-flex flex-column align-items-center">
-                <img
-                  src="https://uploads-ssl.webflow.com/5ff202b90d901fbd6d262fb2/5ff202b90dfbf4294c0c8c5f_rahul.jpg"
-                  loading="lazy"
-                  alt=""
-                  class="mb-2"
-                />
-                <span>Joshua Kushner</span>
-                <p class="text-secondary">Founder of Thrive Capital</p>
-              </div>
-            </div>
-            <!-- /.col-sm-4 -->
-            <div class="col-sm-4">
-              <div class="d-flex flex-column align-items-center">
-                <img
-                  src="https://uploads-ssl.webflow.com/5ff202b90d901fbd6d262fb2/5ff202b90dfbf4294c0c8c5f_rahul.jpg"
-                  loading="lazy"
-                  alt=""
-                  class="mb-2"
-                />
-                <span>Joshua Kushner</span>
-                <p class="text-secondary">Founder of Thrive Capital</p>
-              </div>
-            </div>
-            <!-- /.col-sm-4 -->
-            <div class="col-sm-4">
-              <div class="d-flex flex-column align-items-center">
-                <img
-                  src="https://uploads-ssl.webflow.com/5ff202b90d901fbd6d262fb2/5ff202b90dfbf4294c0c8c5f_rahul.jpg"
-                  loading="lazy"
-                  alt=""
-                  class="mb-2"
-                />
-                <span>Joshua Kushner</span>
-                <p class="text-secondary">Founder of Thrive Capital</p>
-              </div>
-            </div>
-            <!-- /.col-sm-4 -->
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.col -->
-
-        <div class="col">
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="d-flex flex-column align-items-center">
-                <img
-                  src="https://uploads-ssl.webflow.com/5ff202b90d901fbd6d262fb2/5ff202b90dfbf4294c0c8c5f_rahul.jpg"
-                  loading="lazy"
-                  alt=""
-                  class="mb-2"
-                />
-                <span>Joshua Kushner</span>
-                <p class="text-secondary">Founder of Thrive Capital</p>
-              </div>
-            </div>
-            <!-- /.col-sm-4 -->
-            <div class="col-sm-4">
-              <div class="d-flex flex-column align-items-center">
-                <img
-                  src="https://uploads-ssl.webflow.com/5ff202b90d901fbd6d262fb2/5ff202b90dfbf4294c0c8c5f_rahul.jpg"
-                  loading="lazy"
-                  alt=""
-                  class="mb-2"
-                />
-                <span>Joshua Kushner</span>
-                <p class="text-secondary">Founder of Thrive Capital</p>
-              </div>
-            </div>
-            <!-- /.col-sm-4 -->
-            <div class="col-sm-4">
-              <div class="d-flex flex-column align-items-center">
-                <img
-                  src="https://uploads-ssl.webflow.com/5ff202b90d901fbd6d262fb2/5ff202b90dfbf4294c0c8c5f_rahul.jpg"
-                  loading="lazy"
-                  alt=""
-                  class="mb-2"
-                />
-                <span>Joshua Kushner</span>
-                <p class="text-secondary">Founder of Thrive Capital</p>
-              </div>
-            </div>
-            <!-- /.col-sm-4 -->
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.container -->
-    </div>
-
-    <!-- Delegation End -->
 
     <!-- ***** Content Area End ***** -->
 
