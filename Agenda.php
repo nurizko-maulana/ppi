@@ -81,23 +81,76 @@
         }
     } 
     //fx 
+    function date_indo($date){
+        $bulan = array (
+            1 =>   'Januari',
+            2 => 'Februari',
+            3 => 'Maret',
+            4 => 'April',
+            5 => 'Mei',
+            6 => 'Juni',
+            7 => 'Juli',
+            8 => 'Agustus',
+            9 => 'September',
+            10 => 'Oktober',
+            11 => 'November',
+            12 => 'Desember'
+        );
+        $split = explode('-', $date);
+        echo $split[2].' '.$bulan[ (int)$split[1] ].' '.$split[0];
+    }
+
     function isi($mth){
         include "config/connection.php"; 
         $sql_isi = $GLOBALS['sql']." WHERE MONTH(tanggal_event) = $mth"; 
         $query_isi = mysqli_query($conn, $sql_isi); 
+        $count = mysqli_num_rows($query_isi); 
+        $count2 = $count%3; 
+        $current = 1; 
+
+        //limit 
+        if($count2 == 1){
+            $lim = 4;
+        } else if ($count2 == 0){
+            $lim = 3; 
+        } else {
+            $lim = $count2; 
+        }
         while ($data_isi = mysqli_fetch_assoc($query_isi)){
+            //modulus 
+            if($lim == 4 && $count == 4){
+                $x = 2; 
+            } else {
+                $x = 3; 
+            }
+
+            //div class col-sm-size
+            if(($lim == 4 && $count == 4) || ($count == 2)){
+                $size = 6; 
+            } else if ($count == 1){
+                $size = 12; 
+            } else {
+                $size = 4; 
+            }
     ?>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-<?php echo $size; ?>">
                 <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
                     <img src="img/uploads/event/<?php echo $data_isi['img_event'];?>" alt="">
                     <div class="blog-content">
                         <h5><a href="static-page.html"><?php echo $data_isi['judul_event']; ?></a></h5>
-                        <p><?php echo $data_isi['detail_event']; ?></p>
-                        <a href="static-page.html">Learn More</a>
+                        <p><?php date_indo($data_isi['tanggal_event']); ?></p>
+                        <a href="static-page.html"><button type="button" class="btn btn-danger">Learn More</button></a>
                     </div>
                 </div>
             </div>
         <?php
+            if($current%$x == 0){
+                $current = 0; 
+            }
+            $current++; 
+            if($count > $lim){
+                $count--; 
+            }
         }
     }
     //loops
