@@ -172,8 +172,8 @@
 
                 //application 
                 if(($current-1)%3 == 0){ ?>
-                    <div class='col'>
-                        <div class='row'>
+                    <div class='col' style='padding-left: 20px; padding-right: 20px;'>
+                        <div class='row' style='padding-bottom: 50px;'>
                 <?php } ?>
                             <div class='col-sm-<?php echo $size; ?>'>
                                 <div class='d-flex flex-column align-items-center'>
@@ -181,12 +181,13 @@
                                     loading='lazy'
                                     alt=''
                                     class='mb-2'
+                                    style='display: block; margin: 0 auto; width: 700px; height: 400px; background-size: cover;'
                                     />
                                     <span><?php echo $data['nama_speaker']; ?></span>
                                     <p class='text-secondary' align='center'>
                                         <?php 
                                         fills($data['ppi_speaker']); 
-                                        fills($data['negara_speaker']); 
+                                        fills($data['lingkup_jurusan']); 
                                         fills($data['tentang_speaker']); 
                                         ?>
                                     </p>
