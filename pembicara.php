@@ -33,7 +33,7 @@
         <div class="row h-100">
           <div class="col-12 h-100">
             <nav class="h-100 navbar navbar-expand-lg align-items-center">
-              <a class="navbar-brand" href="index.html"
+              <a class="navbar-brand" href="index.php"
                 ><img src="img/logo-edufest.png" width="150" alt=""
               /></a>
               <button
@@ -52,7 +52,7 @@
               <div class="collapse navbar-collapse" id="fancyNav">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="index.php">
                       Home
                     </a>
                   </li>
@@ -61,7 +61,7 @@
                     <a class="nav-link" href="#">Pembicara</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="Agenda.html">Agenda</a>
+                    <a class="nav-link" href="Agenda.php">Agenda</a>
                   </li>
                 </ul>
               </div>
@@ -124,13 +124,11 @@
     </div>
 
     <div class="p-5">
-      <div class="container-fluid">
+      <div class="container-fluid row d-flex align-items-center justify-content-center">
         <?php 
         include "config/connection.php"; 
         $sql = "SELECT*FROM speaker"; 
         $query = mysqli_query($conn, $sql);
-        $count = mysqli_num_rows($query);
-        $current = 1;
         while($data = mysqli_fetch_assoc($query)){
             //sql
             $id = $data['id_speaker']; 
@@ -153,33 +151,17 @@
                 $note = $data['tentang_speaker']; 
             }
             //application
-            if (($current-1)%3 == 0){
-                echo "<div class='col'>"; 
-                    echo "<div class='row'>"; 
-            }
-                        echo "<div class='col-sm-4'>"; 
-                            echo "<div class='d-flex flex-column align-items-center'>";
-                                echo "<img
-                                src='img/uploads/speaker/".$data['img_speaker']."'
-                                loading='lazy'
-                                alt=''
-                                class='mb-2'
-                                />"; 
-                                echo "<span>".$data['nama_speaker']."</span>"; 
-                                echo "<p class='text-secondary'>$note</p>"; 
-                            echo "</div>"; 
-                        echo "</div>"; 
-            if($current%3 == 0){
-                    echo "</div>"; 
-                echo "</div>"; 
-                $current = 0; 
-            }
-            $current++; 
-        } 
-        if($count%3!=0){
-            echo "</div></div>"; 
-        }
-        ?>
+          ?>
+            <div class="col-12 col-md-4 text-center">
+              <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
+                  <img src="img/uploads/speaker/<?php echo $data['img_speaker']; ?>" alt="" style="height:200px;width:200px; class="mb-2" loading="lazy">
+                  <div class='blog-content'>
+                    <span><?php echo $data['nama_speaker']; ?></span>
+                    <p class='text-secondary'><?php echo $note; ?></p>
+                  </div>
+              </div>
+            </div>
+        <?php } ?>
       </div>
       <!-- /.container -->
     </div>
@@ -203,14 +185,14 @@
             <p class="font-weight-bold">Halaman</p>
           </div>
           <div class="">
-            <a href="pembicara.html"><p>Pembicara</p></a>
-            <a href="Agenda.html"><p>Agenda</p></a>
-            <a href="#"><p>FAQ</p></a>
+            <a href="pembicara.php"><p>Pembicara</p></a>
+            <a href="Agenda.php"><p>Agenda</p></a>
+            <a href="faq.php"><p>FAQ</p></a>
           </div>
         </div>
         <div class="m-4">
           <div class="">
-            <p class="font-weight-bold text-center">Folow Us</p>
+            <p class="font-weight-bold text-center">Follow Us</p>
           </div>
           <div class="d-flex flex-row bd-highlight mb-3 w-">
             <img
