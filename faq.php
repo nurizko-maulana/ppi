@@ -33,7 +33,7 @@
         <div class="row h-100">
           <div class="col-12 h-100">
             <nav class="h-100 navbar navbar-expand-lg align-items-center">
-              <a class="navbar-brand" href="index.html"
+              <a class="navbar-brand" href="index.php"
                 ><img src="img/logo-edufest.png" width="150" alt=""
               /></a>
               <button
@@ -52,14 +52,14 @@
               <div class="collapse navbar-collapse" id="fancyNav">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
-                    <a class="nav-link" href="index.html"> Home </a>
+                    <a class="nav-link" href="index.php"> Home </a>
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Pembicara</a>
+                    <a class="nav-link" href="pembicara.php">Pembicara</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="Agenda.html">Agenda</a>
+                    <a class="nav-link" href="Agenda.php">Agenda</a>
                   </li>
                 </ul>
               </div>
@@ -111,7 +111,7 @@
                   title=""
                   data-toggle="collapse"
                   data-parent="#accordion"
-                  href="#collapse0"
+                  href="#collapse<?php echo $data['id_faq']; ?>"
                   aria-expanded="true"
                   aria-controls="collapse0"
                 >
@@ -120,7 +120,7 @@
               </h3>
             </div>
             <div
-              id="collapse0"
+              id="collapse<?php echo $data['id_faq']; ?>"
               class="panel-collapse collapse"
               role="tabpanel"
               aria-labelledby="heading0"
@@ -158,14 +158,14 @@
             <p class="font-weight-bold">Halaman</p>
           </div>
           <div class="">
-            <a href="pembicara.html"><p>Pembicara</p></a>
-            <a href="Agenda.html"><p>Agenda</p></a>
+            <a href="pembicara.php"><p>Pembicara</p></a>
+            <a href="Agenda.php"><p>Agenda</p></a>
             <a href="#"><p>FAQ</p></a>
           </div>
         </div>
         <div class="m-4">
           <div class="">
-            <p class="font-weight-bold text-center">Folow Us</p>
+            <p class="font-weight-bold text-center">Follow Us</p>
           </div>
           <div class="d-flex flex-row bd-highlight mb-3 w-">
             <img
