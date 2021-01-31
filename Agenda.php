@@ -37,7 +37,7 @@
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg align-items-center">
-                        <a class="navbar-brand" href="index.html">PPI DUNIA</a>
+                        <a class="navbar-brand" href="index.php">PPI DUNIA</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#fancyNav"
                             aria-controls="fancyNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="ti-menu"></span>
@@ -45,14 +45,14 @@
                         <div class="collapse navbar-collapse" id="fancyNav">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="pembicara.html">Pembicara</a>
+                                    <a class="nav-link" href="pembicara.php">Pembicara</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Agenda.html">Agenda</a>
+                                    <a class="nav-link" href="Agenda.php">Agenda</a>
                                 </li>
                             </ul>
                         </div>
@@ -66,34 +66,61 @@
     <!-- ***** Trending Topic Start ***** -->
     <?php 
     include "config/connection.php";
-    $sql = "SELECT * FROM event"; 
+    $sql = "SELECT * FROM event ORDER BY tanggal_event ASC"; 
     $query = mysqli_query($conn, $sql);
-    //arrays
-    $arr_month_word = array();  
+    //arrays 
     $arr_month_num = array(); 
     //uniques
     while($data = mysqli_fetch_assoc($query)){
-        $month_word  = date("F",strtotime($data['tanggal_event'])); 
         $month_num = date("n", strtotime($data['tanggal_event'])); 
-        if (!in_array($month_word, $arr_month_word,)){
-            array_push($arr_month_word, $month_word); 
+        if (!in_array($month_num, $arr_month_num,)){
             array_push($arr_month_num, $month_num); 
         }
     } 
     //fx 
+    function date_indo($date, $input){
+        $bulan = array (
+            1 =>   'Januari',
+            2 => 'Februari',
+            3 => 'Maret',
+            4 => 'April',
+            5 => 'Mei',
+            6 => 'Juni',
+            7 => 'Juli',
+            8 => 'Agustus',
+            9 => 'September',
+            10 => 'Oktober',
+            11 => 'November',
+            12 => 'Desember'
+        );
+        $split = explode('-', $date);
+        if($input=='full'){
+            echo $split[2].' '.$bulan[ (int)$split[1] ].' '.$split[0];
+        } else if($input =='month'){
+            echo strtoupper($bulan[$date]); 
+        }
+    }
+
     function isi($mth){
         include "config/connection.php"; 
-        $sql_isi = $GLOBALS['sql']." WHERE MONTH(tanggal_event) = $mth"; 
+        $sql_isi = "SELECT*FROM event WHERE MONTH(tanggal_event) = $mth ORDER BY tanggal_event ASC"; 
         $query_isi = mysqli_query($conn, $sql_isi); 
+        $today = date("Y-m-d"); 
         while ($data_isi = mysqli_fetch_assoc($query_isi)){
     ?>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 text-center">
                 <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
-                    <img src="img/uploads/event/<?php echo $data_isi['img_event'];?>" alt="">
+                    <img src="img/uploads/event/<?php echo $data_isi['img_event'];?>" alt="" style='width: 200px; height: 200px;'>
                     <div class="blog-content">
-                        <h5><a href="static-page.html"><?php echo $data_isi['judul_event']; ?></a></h5>
-                        <p><?php echo $data_isi['detail_event']; ?></p>
-                        <a href="static-page.html">Learn More</a>
+                        <h5><a href="#"><?php echo $data_isi['judul_event']; ?></a></h5>
+                        <p><?php date_indo($data_isi['tanggal_event'], "full"); ?></p>
+                    <?php 
+                        if($data_isi['tanggal_event'] < $today){ 
+                            echo "<p style='color: #B3321D'><i>Event sudah lewat</i></p>"; 
+                        } else {
+                            echo "<a href='#'><button type='button' class='btn btn-danger'>Daftar Sekarang</button></a>"; 
+                        }
+                    ?>
                     </div>
                 </div>
             </div>
@@ -101,18 +128,19 @@
         }
     }
     //loops
-    for($i=0; $i<sizeof($arr_month_word); $i++){
+    for($i=0; $i<sizeof($arr_month_num); $i++){
     ?>
     <section class="fancy-about-us-area bg-gray">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading text-center">
-                        <h2><?php echo strtoupper($arr_month_word[$i]); ?></h2>
+                        <br>
+                        <h2><?php date_indo($arr_month_num[$i], "month"); ?></h2>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row d-flex align-items-center justify-content-center">
                 <!-- isi backend -->
                 <?php isi($arr_month_num[$i]); ?>
                 <!-- end of backend -->
@@ -123,53 +151,62 @@
     <!-- ***** Trending Topic End ***** -->
 
     <!-- ***** Footer Area Start ***** -->
-    <footer class="fancy-footer-area fancy-bg-dark">
-        <div class="footer-content section-padding-80-50">
-            <div class="container">
-                <div class="row">
-                    <!-- Footer Widget -->
-                    <div class="col-12 col-sm-6 col-lg-6">
-                        <div class="single-footer-widget">
-                            <h6>Health Pet</h6>
-                            <div class="single-tweet">
-                                <a href="#">With the
-                                    popularity of podcast shows growing with each year, you
-                                    might consider starting it yourself as well.
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Footer Widget -->
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget">
-                            <h6>Contact Us</h6>
-                            <p>1 (800) 686-6688 <br />info.deercreative@gmail.com</p>
-                            <p>40 Baria Sreet 133/2 <br />NewYork City, US</p>
-                            <p>Open hours: 8.00-18.00 Mon-Fri</p>
-                        </div>
-                    </div>
-                    <!-- Footer Widget -->
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget">
-                            <h6>Our Newsletter</h6>
-                            <p>
-                                Subscribe to our mailing list to get the updates to your email
-                                inbox.
-                            </p>
-                            <div class="footer-social-widegt d-flex align-items-center">
-                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <footer>
+        <div class="d-flex justify-content-around p-5">
+          <div class="mx-5">
+            <div class="">
+              <img class="mb-4" width="50" src="img/logo.png" alt="Logo" />
+              <p class="">© Copyright 2020 PPI DUNIA</p>
+              <p class="">All rights reserved.</p>
             </div>
+          </div>
+          <div class="mx-5">
+            <div class="text-center">
+              <p class="font-weight-bold">Halaman</p>
+            </div>
+            <div class="text-center">
+              <a href="pembicara.php"><p>Pembicara</p></a>
+              <a href="Agenda.php"><p>Agenda</p></a>
+              <a href="faq.php"><p>FAQ</p></a>
+            </div>
+          </div>
+          <div class="mx-5">
+            <div class="">
+              <p class="font-weight-bold">Follow Us</p>
+            </div>
+            <div class="d-flex flex-row bd-highlight mb-3 w-">
+              <img
+                width="30"
+                class="mr-2"
+                src="img/facebook.svg"
+                alt="facebook"
+                srcset=""
+              />
+              <img
+                width="30"
+                class="mx-2"
+                src="img/twitter.svg"
+                alt="facebook"
+                srcset=""
+              />
+              <img
+                width="30"
+                class="mx-2"
+                src="img/linkedin.svg"
+                alt="facebook"
+                srcset=""
+              />
+              <img
+                width="30"
+                class="mx-2"
+                src="img/instagram.svg"
+                alt="facebook"
+                srcset=""
+              />
+            </div>
+          </div>
         </div>
-    </footer>
+      </footer>
     <!-- ***** Footer Area End ***** -->
 
     <!-- jQuery-2.2.4 js -->
