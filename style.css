@@ -2,6 +2,7 @@
 ***** [Core Stylesheet - v1.0] *****
 ================================= */
 
+
 /* ----------------------------------------------
 :: Template Name: Fancy - Creative Agency Template
 :: Template Author: Colorlib
@@ -9,6 +10,7 @@
 :: Version: v1.0.0
 :: Last Updated: 12-08-2017
 ---------------------------------------------- */
+
 
 /* ***** [Fonts: Popins + Playfair Display] ***** */
 
@@ -39,13 +41,12 @@ body {
     font-family: 'Poppins', sans-serif;
     position: relative;
     z-index: auto;
-
 }
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  height: 100px;
-  width: 50px;
-  
+    height: 100px;
+    width: 50px;
 }
 
 h2,
@@ -83,6 +84,24 @@ a:active {
     transition-duration: 600ms;
     outline: none;
 }
+<<<<<<< HEAD
+=======
+
+.btn-danger {
+    background: transparent;
+    color: #B3321D;
+    border-radius: 40px;
+    letter-spacing: 1px;
+}
+
+.btn-danger:hover {
+    background-color: #B3321D;
+    color: white;
+    border-radius: 40px;
+    letter-spacing: 1px;
+}
+
+>>>>>>> main
 li {
     list-style: none;
 }
@@ -106,13 +125,14 @@ li {
     font-family: 'Playfair Display', serif;
 }
 
+
 /* Preloader CSS */
 
 #preloader {
     overflow: hidden;
     background: red;
     background: -webkit-linear-gradient(to right, red, #ffacac);
-    background: -webkit-linear-gradient(left,  red, #ffacac);
+    background: -webkit-linear-gradient(left, red, #ffacac);
     background: linear-gradient(to right, red, #ffacac);
     height: 100%;
     left: 0;
@@ -123,7 +143,6 @@ li {
 }
 
 .loader {
-
     width: 46px;
     position: relative;
     top: 50%;
@@ -137,15 +156,12 @@ li {
     0% {
         -webkit-transform: translateY(0%);
     }
-
     30% {
         -webkit-transform: translateY(-0.25em);
     }
-
     50% {
         -webkit-transform: translateY(0%);
     }
-
     70% {
         -webkit-transform: translateY(0.25em);
     }
@@ -175,6 +191,7 @@ li {
 .loader .inner3 {
     -webkit-animation-delay: 0.375s;
 }
+
 
 /* Basic CSS */
 
@@ -369,6 +386,7 @@ li {
     color: grey;
 }
 
+
 /* Header Area CSS */
 
 #header-sticky-wrapper {
@@ -426,6 +444,7 @@ li {
     min-height: 100%;
   }
 
+
 /* hero area css */
 
 .fancy-hero-area {
@@ -434,7 +453,6 @@ li {
     width: 100%;
     margin-bottom: 50px;
 }
-
 
 .fancy-hero-content h2 {
     font-size: 48px;
@@ -452,11 +470,9 @@ li {
     0% {
         background-position: 0% 50%;
     }
-
     50% {
         background-position: 100% 20%;
     }
-
     100% {
         background-position: 0% 50%;
     }
@@ -466,15 +482,14 @@ li {
     0% {
         background-position: 0% 50%;
     }
-
     50% {
         background-position: 100% 20%;
     }
-
     100% {
         background-position: 0% 50%;
     }
 }
+
 
 /* Top Features Area CSS */
 
@@ -524,6 +539,7 @@ li {
     color: #2bc0a4;
 }
 
+
 /* About Us Area CSS */
 
 .fancy-about-us-area {
@@ -547,6 +563,7 @@ li {
 .about-us-thumb>img {
     border-radius: 5px;
 }
+
 
 /* Skills Area CSS */
 
@@ -618,6 +635,7 @@ li {
     margin-bottom: 5px;
 }
 
+
 /* Service Area CSS */
 
 .single-service-area {
@@ -652,6 +670,7 @@ li {
     -webkit-transform: scale(1.2);
     transform: scale(1.2)
 }
+
 
 /* Testimonials Area CSS */
 
@@ -727,6 +746,7 @@ li {
     right: -4%;
 }
 
+
 /* CTA Area CSS */
 
 .cta-content h2 {
@@ -739,6 +759,7 @@ li {
     color: #fff;
     margin-bottom: 30px;
 }
+
 
 /* Blog Area CSS */
 
@@ -757,8 +778,17 @@ li {
     box-shadow: 2px 8px 40px rgba(0, 0, 0, 0.1)
 }
 
+.single-blog-area>img {
+    display: block;
+    margin: 0 auto;
+    width: 700px;
+    height: 400px;
+    background-size: cover;
+}
+
 .blog-content {
-    padding: 30px;
+    padding: 10px;
+    text-align: center;
 }
 
 .blog-content h5 a {
@@ -778,6 +808,7 @@ li {
 .blog-content>a:hover {
     color: #7450fe;
 }
+
 
 /* Footer Area CSS */
 
@@ -911,6 +942,7 @@ li {
     padding: 0 20px;
 }
 
+
 /* Breadcumb Area CSS */
 
 .fancy-breadcumb-area {
@@ -934,6 +966,7 @@ li {
     font-size: 18px;
     margin-bottom: 0;
 }
+
 
 /* Google Map */
 
@@ -1010,6 +1043,7 @@ li {
 .breadcrumb li a {
     color: #fff;
 }
+
 
 /* Blog Page CSS */
 
@@ -1145,42 +1179,50 @@ li {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 10px 10px;
-    grid-template-areas:
-      "left left right-top"
-      "left left right-bottom";
-  }
-  
-  .left { grid-area: left; }
-  
-  .right-top { grid-area: right-top; }
-  
-  .right-bottom { grid-area: right-bottom; }
-  
-  #banner {
-    transform:translateY(280px);
+    grid-template-areas: "left left right-top" "left left right-bottom";
+}
+
+.left {
+    grid-area: left;
+}
+
+.right-top {
+    grid-area: right-top;
+}
+
+.right-bottom {
+    grid-area: right-bottom;
+}
+
+#banner {
+    transform: translateY(280px);
     z-index: 1;
-  }
+}
 
-  #headline {
+#headline {
     font-size: 7rem;
-  }
+}
 
-  .galery{
-      padding-left: 10em;
-      padding-right: 10em;
-  }
+.galery {
+    padding-left: 10em;
+    padding-right: 10em;
+}
 
-  /* FAQ Style Start */
-  .accordion-section .panel-default > .panel-heading {
+
+/* FAQ Style Start */
+
+.accordion-section .panel-default>.panel-heading {
     border: 0;
     background: #f4f4f4;
     padding: 0;
 }
+
 .accordion-section .panel-default .panel-title a {
     display: block;
     font-style: italic;
     font-size: 1.5rem;
 }
+
 .accordion-section .panel-default .panel-title a:after {
     font-family: 'FontAwesome';
     font-style: normal;
@@ -1190,9 +1232,11 @@ li {
     float: right;
     margin-top: -12px;
 }
+
 .accordion-section .panel-default .panel-title a.collapsed:after {
     content: "\f107";
 }
+
 .accordion-section .panel-default .panel-body {
     font-size: 1.2rem;
 }
@@ -1200,4 +1244,13 @@ li {
 .margin-up {
     margin-top: 10em;
 }
+
+
 /* FAQ Style End */
+
+
+/* Detail Page Style Start */
+.mt-content{
+    margin-top: 10em;
+}
+/* Detail Page Style end */
