@@ -1,0 +1,58 @@
+<div class="carousel-inner">
+                    <div class="item active">
+                        <div class="col-12 col-md-4">
+                         <!-- Card -->
+                         <div class="card">
+                          <!-- Card image -->
+                          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+                        </div>
+                        <!-- Card -->
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="col-12 col-md-4">
+                        <div class="card">
+                          <!-- Card image -->
+                          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+                        </div>
+                         <!-- Card -->
+                     </div>
+                    </div>
+                    <div class="item">
+                      <div class="col-12 col-md-4">
+                        <div class="card">
+                          <!-- Card image -->
+                          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+                        </div>
+                         <!-- Card -->
+                     </div>
+                    </div>
+                    <div class="item">
+                      <div class="col-12 col-md-4">
+                        <div class="card">
+                          <!-- Card image -->
+                          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+                        </div>
+                         <!-- Card -->
+                     </div>
+                    </div>
+                    <div class="item">
+                      <div class="col-12 col-md-4">
+                        <div class="card">
+                          <!-- Card image -->
+                          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+                        </div>
+                         <!-- Card -->
+                     </div>
+                    </div>
+                    <div class="item">
+                      <div class="col-12 col-md-4">
+                        <!-- Card -->
+                        <div class="card">
+                          <!-- Card image -->
+                          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+                        </div>
+                         <!-- Card -->
+                     </div>
+                    </div>
+                  </div>
