@@ -18,7 +18,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.0/css/all.min.css">
 
     <!-- Core Stylesheet -->
@@ -28,13 +27,12 @@
     <!-- Responsive CSS -->
     <link href="css/responsive/responsive.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
   <body>
-    <!-- ***** Header Area Start ***** -->
     <header class="header_area" id="header">
       <div class="container-fluid h-100">
         <div class="row h-100">
@@ -50,19 +48,20 @@
                 data-target="#fancyNav"
                 aria-controls="fancyNav"
                 aria-expanded="false"
-                aria-label="Toggle navigation">
+                aria-label="Toggle navigation"
+              >
                 <span class="ti-menu"></span>
               </button>
+
+              <!-- TODO add hover animation bottom line -->
               <div class="collapse navbar-collapse" id="fancyNav">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
-                    <a class="nav-link" href="index.html">
-                      Home
-                    </a>
+                    <a class="nav-link" href="index.html"> Home </a>
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="pembicara.html">Pembicara</a>
+                    <a class="nav-link" href="#">Pembicara</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="Agenda.html">Agenda</a>
@@ -74,7 +73,6 @@
         </div>
       </div>
     </header>
-    <!-- ***** Header Area End *****-->
 
     <!-- ***** Hero Area Start ***** -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -116,27 +114,40 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-  </div>
     <!-- ***** Hero Area End ***** -->
+ 
+    <!-- ***** About Us Area ***** -->
+    <section class="fancy-skills-area section-padding-100">
+      <!-- Side Thumb -->
+      <div class="skills-side-thumb">
+          <img src="img/bg-img/ppi.png" alt="">
+      </div>
+      <!-- Skills Content -->
+      <div class="container">
+          <div class="row">
+              <div class="col-12 col-md-6 col-xl-6 ml-auto">
+                  <div class="section-heading">
+                    <h2><center>PPI EDUFEST 2021</center></h2>
+                    
+                  </div>
+                  <div class="skills-content">
+                    <center><p>PPI Edufest 2021: Journey of The World’s Education across Indonesia adalah program yang mempertemukan pelajar Indonesia 
+                      di luar negeri dan pelajar Indonesia dalam negeri yang ingin melanjutkan pendidikan ke luar negeri melalui pameran pendidikan yang diinisiasi oleh
+                      Festival Luar Negeri (FELARI) Perhimpunan Pelajar Indonesia Dunia (PPI Dunia) dan didukung oleh Duta Felari PPI Dunia di 34 provinsi di seluruh Indonesia</P>
+                    </center>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- ***** Skills Area End ***** -->
 
-    <!-- ***** About ***** -->
-    <section class="fancy-blog-area section-padding-100-70">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-heading text-center">
-                        <h2> MENGHADIRKAN BEASISWA</h2>
-                        <h2> AWARDEE DARI 60 Negara</h2>
-                        <p>
-                          <iframe width="560" height="315" src="https://www.youtube.com/embed/xEKlhTV2HYI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </p>
-                    </div>
-                </div>
-            </div>
-    </section>
-    <!-- ***** About ***** -->
-    
-
+  <section class="fancy-skills-area">
+        <div class="row">
+              <iframe class ="col-12" height = 500px src="https://www.youtube.com/embed/73CQ4pkrauA?autoplay=1&mute=1">
+              </iframe>
+            </section>
+            
     <!-- ***** Agenda Start ***** -->
     <section class="fancy-about-us-area bg-gray">
       <div class="container">
@@ -232,7 +243,7 @@
 
     
     <!--Pembiacara Start-->
-    <section class="fancy-about-us-area bg-gray">
+    <section class="fancy-about-us-area">
       <div class="container">
           <div class="row">
               <div class="col-12">
@@ -392,7 +403,7 @@
       </div>
   </section>
   <!--End Of Pembicara Section-->
-
+  
     <!-- ***** Sponsor & Partner Area ***** -->
     <div class="col-12" style="padding: 60px">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

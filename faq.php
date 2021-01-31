@@ -100,11 +100,10 @@
         include "config/connection.php"; 
         $sql = "SELECT*FROM faq"; 
         $query = mysqli_query($conn, $sql); 
-        $num = 0; 
         while ($data = mysqli_fetch_assoc($query)){
         ?>
-          <div class="panel panel-default">
-            <div class="panel-heading p-3 mb-3" role="tab" id="heading<?php echo $num; ?>">
+        <div class="panel panel-default">
+            <div class="panel-heading p-3 mb-3" role="tab" id="heading0">
               <h3 class="panel-title">
                 <a
                   class="collapsed"
@@ -112,32 +111,31 @@
                   title=""
                   data-toggle="collapse"
                   data-parent="#accordion"
-                  href="#collapse<?php echo $num; ?>"
+                  href="#collapse0"
                   aria-expanded="true"
-                  aria-controls="collapse<?php echo $num; ?>"
+                  aria-controls="collapse0"
                 >
                   <?php echo $data['question_faq']; ?>
                 </a>
               </h3>
             </div>
             <div
-              id="collapse<?php echo $num; ?>"
+              id="collapse0"
               class="panel-collapse collapse"
               role="tabpanel"
               aria-labelledby="heading0"
             >
               <div class="panel-body px-3 mb-4">
                 <ul>
-                  <li><?php echo $data['answer_faq']; ?></li>
+                  <li>
+                      <?php echo $data['answer_faq']; ?>
+                  </li>
                 </ul>
               </div>
             </div>
-          </div>
-        <?php 
-          $num++; 
-          } 
-        ?> 
-        </div>  
+        </div>
+
+        <?php } ?>   
       </div>
     </section>
     <!-- FAQ LIST End -->

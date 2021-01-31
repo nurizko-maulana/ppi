@@ -122,95 +122,66 @@
     <div class="container-fluid bg-1 text-center mb-5">
       <h1 class="margin font-weight-bold">Delegasi PPI Negara</h1>
     </div>
+
     <div class="p-5">
-        <div class="container-fluid">
-            <?php 
-            //basics 
-            include "config/connection.php"; 
-            $sql = "SELECT*FROM speaker";
-            $query = mysqli_query($conn, $sql); 
-            $count = mysqli_num_rows($query); 
-            $count2 = $count%3;
-            $current = 1;
-            
-            //function 
-            function fills($source){
-                if(empty($source)){
-                    echo "";
-                } else {
-                    echo $source."<br>"; 
-                }
+      <div class="container-fluid">
+        <?php 
+        include "config/connection.php"; 
+        $sql = "SELECT*FROM speaker"; 
+        $query = mysqli_query($conn, $sql);
+        $count = mysqli_num_rows($query);
+        $current = 1;
+        while($data = mysqli_fetch_assoc($query)){
+            //sql
+            $id = $data['id_speaker']; 
+            $id_event = $data['id_event']; 
+            $asal_speaker = $data['asal_speaker']; 
+            $sql_event = "SELECT*FROM event WHERE id_event = $id_event"; 
+            $query_event = mysqli_query($conn, $sql_event); 
+            $data_event = mysqli_fetch_assoc($query_event); 
+            if(empty($asal_speaker)){
+                $prov = ""; 
+            } else {
+                $sql_prov = "SELECT*FROM provinsi WHERE id_provinsi=$asal_speaker"; 
+                $query_prov = mysqli_query($conn, $sql_prov); 
+                $data_prov = mysqli_fetch_assoc($query_prov); 
+                $prov = $data_prov['provinsi']; 
             }
-
-            //loop 
-            while($data = mysqli_fetch_assoc($query)){
-                
-                //limit 
-                if($count2 == 1){
-                    $lim = 4;
-                } else if ($count2 == 0){
-                    $lim = 3; 
-                } else {
-                    $lim = $count2; 
-                }
-
-                //modulus 
-                if($lim == 4 && $count == 4){
-                    $x = 2; 
-                } else {
-                    $x = 3; 
-                }
-
-                //div class col-sm-size
-                if(($lim == 4 && $count == 4) || ($count == 2)){
-                    $size = 6; 
-                } else if ($count == 1){
-                    $size = 12; 
-                } else {
-                    $size = 4; 
-                }
-
-                //application 
-                if(($current-1)%3 == 0){ ?>
-                    <div class='col' style='padding-left: 20px; padding-right: 20px;'>
-                        <div class='row' style='padding-bottom: 50px;'>
-                <?php } ?>
-                            <div class='col-sm-<?php echo $size; ?>'>
-                                <div class='d-flex flex-column align-items-center'>
-                                    <img src="img/uploads/speaker/<?php echo $data['img_speaker']; ?>"
-                                    loading='lazy'
-                                    alt=''
-                                    class='mb-2'
-                                    style='display: block; margin: 0 auto; width: 700px; height: 400px; background-size: cover;'
-                                    />
-                                    <span><?php echo $data['nama_speaker']; ?></span>
-                                    <p class='text-secondary' align='center'>
-                                        <?php 
-                                        fills($data['ppi_speaker']); 
-                                        fills($data['lingkup_jurusan']); 
-                                        fills($data['tentang_speaker']); 
-                                        ?>
-                                    </p>
-                                </div>
-                            </div>
-                    <?php 
-                    if ($current%$x == 0){ 
-                    ?>
-                        </div>
-                    </div>
-            <?php 
-                    $current = 0;
-                    }
-                    $current++; 
-                    if($count > $lim){
-                         $count--; 
-                    }
-                }
-                if($count2 != 0){
-                    echo "</div></div>"; 
-                }
-            ?>
-        </div>
+            if(empty($data['tentang_speaker'])){
+                $note = ""; 
+            } else {
+                $note = $data['tentang_speaker']; 
+            }
+            //application
+            if (($current-1)%3 == 0){
+                echo "<div class='col'>"; 
+                    echo "<div class='row'>"; 
+            }
+                        echo "<div class='col-sm-4'>"; 
+                            echo "<div class='d-flex flex-column align-items-center'>";
+                                echo "<img
+                                src='img/uploads/speaker/".$data['img_speaker']."'
+                                loading='lazy'
+                                alt=''
+                                class='mb-2'
+                                />"; 
+                                echo "<span>".$data['nama_speaker']."</span>"; 
+                                echo "<p class='text-secondary'>$note</p>"; 
+                            echo "</div>"; 
+                        echo "</div>"; 
+            if($current%3 == 0){
+                    echo "</div>"; 
+                echo "</div>"; 
+                $current = 0; 
+            }
+            $current++; 
+        } 
+        if($count%3!=0){
+            echo "</div></div>"; 
+        }
+        ?>
+      </div>
+      <!-- /.container -->
     </div>
 
     <!-- Delegation End -->
