@@ -129,39 +129,69 @@
         include "config/connection.php"; 
         $sql = "SELECT*FROM speaker"; 
         $query = mysqli_query($conn, $sql);
-        while($data = mysqli_fetch_assoc($query)){
-            //sql
-            $id = $data['id_speaker']; 
-            $id_event = $data['id_event']; 
-            $asal_speaker = $data['asal_speaker']; 
-            $sql_event = "SELECT*FROM event WHERE id_event = $id_event"; 
-            $query_event = mysqli_query($conn, $sql_event); 
-            $data_event = mysqli_fetch_assoc($query_event); 
-            if(empty($asal_speaker)){
-                $prov = ""; 
-            } else {
-                $sql_prov = "SELECT*FROM provinsi WHERE id_provinsi=$asal_speaker"; 
-                $query_prov = mysqli_query($conn, $sql_prov); 
-                $data_prov = mysqli_fetch_assoc($query_prov); 
-                $prov = $data_prov['provinsi']; 
-            }
-            if(empty($data['tentang_speaker'])){
-                $note = ""; 
-            } else {
-                $note = $data['tentang_speaker']; 
-            }
-            //application
-          ?>
-            <div class="col-12 col-md-4 text-center">
-              <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
-                  <img src="img/uploads/speaker/<?php echo $data['img_speaker']; ?>" alt="" style="height:200px;width:200px; class="mb-2" loading="lazy">
-                  <div class='blog-content'>
-                    <span><?php echo $data['nama_speaker']; ?></span>
-                    <p class='text-secondary'><?php echo $note; ?></p>
-                  </div>
+        $count = mysqli_num_rows($query); 
+        if($count > 0){
+          while($data = mysqli_fetch_assoc($query)){
+              //sql
+              $id = $data['id_speaker']; 
+              $id_event = $data['id_event']; 
+              $asal_speaker = $data['asal_speaker']; 
+              $sql_event = "SELECT*FROM event WHERE id_event = $id_event"; 
+              $query_event = mysqli_query($conn, $sql_event); 
+              $data_event = mysqli_fetch_assoc($query_event); 
+              if(empty($asal_speaker)){
+                  $prov = ""; 
+              } else {
+                  $sql_prov = "SELECT*FROM provinsi WHERE id_provinsi=$asal_speaker"; 
+                  $query_prov = mysqli_query($conn, $sql_prov); 
+                  $data_prov = mysqli_fetch_assoc($query_prov); 
+                  $prov = $data_prov['provinsi']; 
+              }
+              if(empty($data['tentang_speaker'])){
+                  $note = ""; 
+              } else {
+                  $note = $data['tentang_speaker']; 
+              }
+              //application
+            ?>
+              <div class="col-12 col-md-4 text-center">
+                <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
+                    <img src="img/uploads/speaker/<?php echo $data['img_speaker']; ?>" alt="" style="height:200px;width:200px; class="mb-2" loading="lazy">
+                    <div class='blog-content'>
+                      <span><?php echo $data['nama_speaker']; ?></span>
+                      <p class='text-secondary'><?php echo $note; ?></p>
+                    </div>
+                </div>
               </div>
+        <?php 
+          }
+        } else {
+        ?>
+          <div class="col-12 col-md-4 text-center">
+            <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
+                <img src="img/comingsoon/festival.jpeg" alt="" style="height:200px;width:200px; class="mb-2" loading="lazy">
+                <div class='blog-content'>
+                  <span>Coming Soon!</span>
+                </div>
             </div>
-        <?php } ?>
+          </div>
+          <div class="col-12 col-md-4 text-center">
+            <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
+                <img src="img/comingsoon/luarnegeri.jpeg" alt="" style="height:200px;width:200px; class="mb-2" loading="lazy">
+                <div class='blog-content'>
+                  <span>Coming Soon!</span>
+                </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 text-center">
+            <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
+                <img src="img/comingsoon/cmg soon.jpeg" alt="" style="height:200px;width:200px; class="mb-2" loading="lazy">
+                <div class='blog-content'>
+                  <span>Coming Soon!</span>
+                </div>
+            </div>
+          </div>
+      <?php } ?>
       </div>
       <!-- /.container -->
     </div>

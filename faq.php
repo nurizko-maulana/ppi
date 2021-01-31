@@ -98,44 +98,50 @@
         >
         <?php 
         include "config/connection.php"; 
-        $sql = "SELECT*FROM faq"; 
+        $sql = "SELECT*FROM faq WHERE id_faq=0"; 
         $query = mysqli_query($conn, $sql); 
-        while ($data = mysqli_fetch_assoc($query)){
-        ?>
-        <div class="panel panel-default">
-            <div class="panel-heading p-3 mb-3" role="tab" id="heading0">
-              <h3 class="panel-title">
-                <a
-                  class="collapsed"
-                  role="button"
-                  title=""
-                  data-toggle="collapse"
-                  data-parent="#accordion"
-                  href="#collapse<?php echo $data['id_faq']; ?>"
-                  aria-expanded="true"
-                  aria-controls="collapse0"
+        $count = mysqli_num_rows($query); 
+        if($count > 0){
+            while ($data = mysqli_fetch_assoc($query)){
+            ?>
+            <div class="panel panel-default">
+                <div class="panel-heading p-3 mb-3" role="tab" id="heading0">
+                  <h3 class="panel-title">
+                    <a
+                      class="collapsed"
+                      role="button"
+                      title=""
+                      data-toggle="collapse"
+                      data-parent="#accordion"
+                      href="#collapse<?php echo $data['id_faq']; ?>"
+                      aria-expanded="true"
+                      aria-controls="collapse0"
+                    >
+                      <?php echo $data['question_faq']; ?>
+                    </a>
+                  </h3>
+                </div>
+                <div
+                  id="collapse<?php echo $data['id_faq']; ?>"
+                  class="panel-collapse collapse"
+                  role="tabpanel"
+                  aria-labelledby="heading0"
                 >
-                  <?php echo $data['question_faq']; ?>
-                </a>
-              </h3>
+                  <div class="panel-body px-3 mb-4">
+                    <ul>
+                      <li>
+                          <?php echo $data['answer_faq']; ?>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
             </div>
-            <div
-              id="collapse<?php echo $data['id_faq']; ?>"
-              class="panel-collapse collapse"
-              role="tabpanel"
-              aria-labelledby="heading0"
-            >
-              <div class="panel-body px-3 mb-4">
-                <ul>
-                  <li>
-                      <?php echo $data['answer_faq']; ?>
-                  </li>
-                </ul>
-              </div>
-            </div>
-        </div>
-
-        <?php } ?>   
+      <?php 
+            } 
+        } else {
+          echo "<br><br><h4 class='text-center'>Data Belum Tersedia...</h4><br><br>"; 
+        } 
+      ?>
       </div>
     </section>
     <!-- FAQ LIST End -->

@@ -128,25 +128,68 @@
         }
     }
     //loops
-    for($i=0; $i<sizeof($arr_month_num); $i++){
-    ?>
-    <section class="fancy-about-us-area bg-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-heading text-center">
-                        <br>
-                        <h2><?php date_indo($arr_month_num[$i], "month"); ?></h2>
+    if(sizeof($arr_month_num) > 0){
+        for($i=0; $i<sizeof($arr_month_num); $i++){
+        ?>
+        <section class="fancy-about-us-area bg-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-heading text-center">
+                            <br>
+                            <h2><?php date_indo($arr_month_num[$i], "month"); ?></h2>
+                        </div>
                     </div>
                 </div>
+                <div class="row d-flex align-items-center justify-content-center">
+                    <!-- isi backend -->
+                    <?php isi($arr_month_num[$i]); ?>
+                    <!-- end of backend -->
+                </div>
             </div>
-            <div class="row d-flex align-items-center justify-content-center">
-                <!-- isi backend -->
-                <?php isi($arr_month_num[$i]); ?>
-                <!-- end of backend -->
+        </section>
+    <?php 
+        }    
+    } else {
+    ?>
+        <section class="fancy-about-us-area bg-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-heading text-center">
+                            <br>
+                            <h2>Agenda</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-12 col-md-4 text-center">
+                        <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
+                            <img src="img/comingsoon/cmg soon.jpeg" alt="" style='width: 200px; height: 200px;'>
+                            <div class="blog-content">
+                                <h5>Coming Soon!</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 text-center">
+                        <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
+                            <img src="img/comingsoon/festival.jpeg" alt="" style='width: 200px; height: 200px;'>
+                            <div class="blog-content">
+                                <h5>Coming Soon!</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 text-center">
+                        <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
+                            <img src="img/comingsoon/luarnegeri.jpeg" alt="" style='width: 200px; height: 200px;'>
+                            <div class="blog-content">
+                                <h5>Coming Soon!</h5>
+                            </div>
+                        </div>
+                    </div>   
+                </div>
             </div>
-         </div>
-    </section>
+        </section>
     <?php } ?>
     <!-- ***** Trending Topic End ***** -->
 

@@ -166,16 +166,46 @@
             $today = date("Y-m-d"); 
             $sql = "SELECT*FROM event WHERE tanggal_event >= date(now()) ORDER BY tanggal_event ASC LIMIT 6"; 
             $query = mysqli_query($conn, $sql); 
-            while($data = mysqli_fetch_assoc($query)){ ?>
+            $count = mysqli_num_rows($query);
+            if($count > 0){ 
+              while($data = mysqli_fetch_assoc($query)){ ?>
+                  <div class="col-12 col-md-4 text-center">
+                      <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
+                          <img src="img/uploads/event/<?php echo $data['img_event']; ?>" alt="" style="height:200px;width:200px;">
+                          <div class="blog-content">
+                              <h5><a href="#"><?php echo $data['judul_event']; ?></a></h5>
+                              <a href="#"><button type="button" class="btn btn-danger">Daftar Sekarang</button></a>
+                          </div>
+                      </div>
+                  </div>
+            <?php 
+              }
+            } else {
+            ?>
                 <div class="col-12 col-md-4 text-center">
-                    <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
-                        <img src="img/uploads/event/<?php echo $data['img_event']; ?>" alt="" style="height:200px;width:200px;">
-                        <div class="blog-content">
-                            <h5><a href="#"><?php echo $data['judul_event']; ?></a></h5>
-                            <a href="#"><button type="button" class="btn btn-danger">Daftar Sekarang</button></a>
-                        </div>
-                    </div>
-                </div>
+                      <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
+                          <img src="img/comingsoon/cmg soon.jpeg" alt="" style="height:200px;width:200px;">
+                          <div class="blog-content">
+                              <h5>Coming Soon!</h5>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-12 col-md-4 text-center">
+                      <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
+                          <img src="img/comingsoon/festival.jpeg" alt="" style="height:200px;width:200px;">
+                          <div class="blog-content">
+                              <h5>Coming Soon!</h5>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-12 col-md-4 text-center">
+                      <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
+                          <img src="img/comingsoon/luarnegeri.jpeg" alt="" style="height:200px;width:200px;">
+                          <div class="blog-content">
+                              <h5>Coming Soon!</h5>
+                          </div>
+                      </div>
+                  </div>
             <?php } ?>
             </div>
         </div>
@@ -198,6 +228,7 @@
                             <?php 
                             $sql_speaker = "SELECT * FROM event LEFT JOIN speaker ON speaker.id_event = event.id_event WHERE tanggal_event >= date(now()) ORDER BY tanggal_event ASC LIMIT 6"; 
                             $query_speaker = mysqli_query($conn, $sql_speaker); 
+                            $count_speaker = mysqli_num_rows($query); 
                             $x = 0; 
                             function fill($source){
                                 if (!empty($source)){
@@ -206,43 +237,117 @@
                                     echo "<br>"; 
                                 }
                             }
-                            while ($data_speaker = mysqli_fetch_assoc($query_speaker)){
-                                if($x == 0){
-                                    $y = "active"; 
-                                } else {
-                                    $y = ""; 
-                                }
-                                if(!empty($data_speaker['nama_speaker'])){
-                            ?>
+                            function fillpic($source){
+                              if(empty($source)){
+                                echo "img/comingsoon/cmg soon.jpeg"; 
+                              } else {
+                                echo "img/uploads/speaker/".$source; 
+                              }
+                            }
 
-                                <div class="item <?php echo $y; ?>">
-                                    <div class="col-12 col-md-4">
-                                        <!-- Card -->
-                                        <div class="card testimonial-card">
-                                            <!-- Background color -->
-                                            <div class="card-up indigo lighten-1"></div>
-                                            <!-- Avatar -->
-                                            <div class="avatar mx-auto white">
-                                                <img src="img/uploads/speaker/<?php echo $data_speaker['img_speaker']; ?>" class="rounded-circle" alt="woman avatar" style="width:200px; height: 200px;">
-                                            </div>
-                                            <!-- Content -->
-                                            <div class="card-body">
-                                                <!-- Name -->
-                                                <h4 class="card-title"><?php echo $data_speaker['nama_speaker']; ?></h4>
-                                                <hr>
-                                                <!-- Quotation -->
-                                                <p> <?php fill($data_speaker['lingkup_jurusan']); ?></p>
-                                                <p> <?php fill($data_speaker['ppi_speaker']); ?></p>
-                                            </div>
+                            function fillname($source){
+                              if(empty($source)){
+                                echo "Coming Soon"; 
+                              } else {
+                                echo $source; 
+                              }
+                            }
+                            if($count_speaker > 0){
+                              while ($data_speaker = mysqli_fetch_assoc($query_speaker)){
+                                  if($x == 0){
+                                      $y = "active"; 
+                                  } else {
+                                      $y = ""; 
+                                  }
+                              ?>
+
+                                  <div class="item <?php echo $y; ?>">
+                                      <div class="col-12 col-md-4">
+                                          <!-- Card -->
+                                          <div class="card testimonial-card">
+                                              <!-- Background color -->
+                                              <div class="card-up indigo lighten-1"></div>
+                                              <!-- Avatar -->
+                                              <div class="avatar mx-auto white">
+                                                  <img src="<?php fillpic($data_speaker['img_speaker']); ?>" class="rounded-circle" alt="" style="width:200px; height: 200px;">
+                                              </div>
+                                              <!-- Content -->
+                                              <div class="card-body text-center">
+                                                  <!-- Name -->
+                                                  <h4 class="card-title"><?php fillname($data_speaker['nama_speaker']); ?></h4>
+                                                  <hr>
+                                                  <!-- Quotation -->
+                                                  <p> <?php fill($data_speaker['lingkup_jurusan']); ?></p>
+                                                  <p> <?php fill($data_speaker['ppi_speaker']); ?></p>
+                                              </div>
+                                          </div>
+                                          <!-- Card -->
+                                      </div>
+                                  </div>
+                          <?php 
+                                  $x++;
+                              }
+                            } else {
+                          ?>
+                              <div class="item active">
+                                <div class="col-12 col-md-4">
+                                    <!-- Card -->
+                                    <div class="card testimonial-card">
+                                        <!-- Background color -->
+                                        <div class="card-up indigo lighten-1"></div>
+                                        <!-- Avatar -->
+                                        <div class="avatar mx-auto white">
+                                            <img src="img/comingsoon/cmg soon.jpeg" class="rounded-circle" alt="" style="width:200px; height: 200px;">
                                         </div>
-                                        <!-- Card -->
+                                        <!-- Content -->
+                                        <div class="card-body text-center">
+                                            <!-- Name -->
+                                            <h4 class="card-title">Coming Soon!</h4>
+                                        </div>
                                     </div>
+                                    <!-- Card -->
                                 </div>
-                            <?php 
-                                }
-                                $x++; 
-                            } 
-                            ?>
+                              </div>
+                              <div class="item">
+                                <div class="col-12 col-md-4">
+                                    <!-- Card -->
+                                    <div class="card testimonial-card">
+                                        <!-- Background color -->
+                                        <div class="card-up indigo lighten-1"></div>
+                                        <!-- Avatar -->
+                                        <div class="avatar mx-auto white">
+                                            <img src="img/comingsoon/festival.jpeg" class="rounded-circle" alt="" style="width:200px; height: 200px;">
+                                        </div>
+                                        <!-- Content -->
+                                        <div class="card-body text-center">
+                                            <!-- Name -->
+                                            <h4 class="card-title">Coming Soon!</h4>
+                                        </div>
+                                    </div>
+                                    <!-- Card -->
+                                </div>
+                              </div>
+                              <div class="item">
+                                <div class="col-12 col-md-4">
+                                    <!-- Card -->
+                                    <div class="card testimonial-card">
+                                        <!-- Background color -->
+                                        <div class="card-up indigo lighten-1"></div>
+                                        <!-- Avatar -->
+                                        <div class="avatar mx-auto white">
+                                            <img src="img/comingsoon/luarnegeri.jpeg" class="rounded-circle" alt="" style="width:200px; height: 200px;">
+                                        </div>
+                                        <!-- Content -->
+                                        <div class="card-body text-center">
+                                            <!-- Name -->
+                                            <h4 class="card-title">Coming Soon!</h4>
+                                        </div>
+                                    </div>
+                                    <!-- Card -->
+                                </div>
+                              </div>
+                                  
+                            <?php } ?>
                         </div>
                         <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
                         <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>

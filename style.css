@@ -434,12 +434,13 @@ li {
     font-size: 14px;
     font-weight: 500;
 }
+
 #myVideo {
     right: 0;
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
-  }
+}
 
 
 /* hero area css */
@@ -773,14 +774,6 @@ li {
 .single-blog-area:hover {
     background-color: #fff;
     box-shadow: 2px 8px 40px rgba(0, 0, 0, 0.1)
-}
-
-.single-blog-area>img {
-    display: block;
-    margin: 0 auto;
-    width: 700px;
-    height: 400px;
-    background-size: cover;
 }
 
 .blog-content {
@@ -1247,7 +1240,10 @@ li {
 
 
 /* Detail Page Style Start */
-.mt-content{
+
+.mt-content {
     margin-top: 10em;
 }
+
+
 /* Detail Page Style end */
