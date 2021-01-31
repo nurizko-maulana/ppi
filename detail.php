@@ -33,7 +33,7 @@
         <div class="row h-100">
           <div class="col-12 h-100">
             <nav class="h-100 navbar navbar-expand-lg align-items-center">
-              <a class="navbar-brand" href="index.html"
+              <a class="navbar-brand" href="index.php"
                 ><img src="img/logo-edufest.png" width="150" alt=""
               /></a>
               <button
@@ -52,14 +52,14 @@
               <div class="collapse navbar-collapse" id="fancyNav">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
-                    <a class="nav-link" href="index.html"> Home </a>
+                    <a class="nav-link" href="index.php"> Home </a>
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Pembicara</a>
+                    <a class="nav-link" href="pembicara.php">Pembicara</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="Agenda.html">Agenda</a>
+                    <a class="nav-link" href="Agenda.php">Agenda</a>
                   </li>
                 </ul>
               </div>
@@ -71,14 +71,34 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Content Area Start ***** -->
+    <?php
+    include "config/connection.php"; 
+    $id = $_REQUEST['id']; 
+    $sql = "SELECT * FROM event WHERE id_event=$id";
+    $query = mysqli_query($conn, $sql); 
+    $sql2 = "SELECT*FROM speaker WHERE id_event=$id"; 
+    $query2 = mysqli_query($conn, $sql2); 
+    $data = mysqli_fetch_assoc($query); 
+    $speakers = array();
+    $pics = array(); 
+    while($loop = mysqli_fetch_assoc($query2)){
+        array_push($pics, $loop['img_speaker']); 
+        array_push($speakers, $loop['nama_speaker']); 
+    } 
+
+    ?>
     <div class="container-fluid mt-content">
       <div class="row">
           <div class="col-sm-6 px-5">
             <div class="">
-              <h1 class="mb-2">Title</h1>
-              <h3 class="mb-2">Pembicara</h3>
-              <img class="mb-2" src="https://uploads-ssl.webflow.com/5ff202b90d901fbd6d262fb2/5ff202b90dfbf4294c0c8c5f_rahul.jpg" alt="">
-              <p class="mb-2">here is no single methodology for creating the perfect product—but you can increase your odds. One of the best ways is to understand users’ reasons for doing things.  Mental Models gives you the tools to help you grasp, and design for, those reasons.  Adaptive Path co-founder Indi Young has written a roll-up-your-sleeves book for designers, managers, and anyone else interested in making design strategic, and successful.</p>
+              <h1 class="mb-2"><?php echo $data['judul_event']; ?></h1>
+              <h3 class="mb-2"><?php echo join(", ", $speakers); ?></h3>
+              <?php 
+              for($i=0; $i<sizeof($pics); $i++){ 
+                echo "<img class='mb-2' src='img/uploads/speaker/".$pics[$i]."' alt='' style='width:200px; height:200px;'>"; 
+              }  
+              ?>
+              <p class="mb-2"><?php echo $data['detail_event']; ?></p>
             </div>
           </div>
           <!-- /.col-sm-6 -->
@@ -108,9 +128,9 @@
             <p class="font-weight-bold">Halaman</p>
           </div>
           <div class="">
-            <a href="pembicara.html"><p>Pembicara</p></a>
-            <a href="Agenda.html"><p>Agenda</p></a>
-            <a href="#"><p>FAQ</p></a>
+            <a href="pembicara.php"><p>Pembicara</p></a>
+            <a href="Agenda.php"><p>Agenda</p></a>
+            <a href="faq.php"><p>FAQ</p></a>
           </div>
         </div>
         <div class="m-4">
