@@ -83,7 +83,6 @@ a:active {
     transition-duration: 600ms;
     outline: none;
 }
-
 li {
     list-style: none;
 }
@@ -367,7 +366,7 @@ li {
 
 .fancy-btn:hover,
 .fancy-btn.fancy-dark:hover {
-    color: #fff;
+    color: grey;
 }
 
 /* Header Area CSS */
@@ -378,7 +377,7 @@ li {
 }
 
 .header_area {
-    background-color: transparent;
+    background-color: white;
     position: fixed;
     width: 100%;
     z-index: 90;
@@ -420,6 +419,12 @@ li {
     font-size: 14px;
     font-weight: 500;
 }
+#myVideo {
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
 
 /* hero area css */
 
@@ -427,7 +432,7 @@ li {
     position: relative;
     z-index: 10;
     width: 100%;
-    height: 900px;
+    margin-bottom: 50px;
 }
 
 
@@ -522,8 +527,8 @@ li {
 /* About Us Area CSS */
 
 .fancy-about-us-area {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .about-us-text>h2 {
