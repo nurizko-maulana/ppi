@@ -124,12 +124,14 @@
     </div>
 
     <div class="p-5">
-      <div class="container-fluid row d-flex align-items-center justify-content-center">
+      <div class="container-fluid">
         <?php 
         include "config/connection.php"; 
         $sql = "SELECT*FROM speaker"; 
         $query = mysqli_query($conn, $sql);
         $count = mysqli_num_rows($query); 
+        $i = 1; 
+        if($count != 4){ echo "<div class='row d-flex align-items-center justify-content-center'>"; }
         if($count > 0){
           while($data = mysqli_fetch_assoc($query)){
               //sql
@@ -153,6 +155,7 @@
                   $note = $data['tentang_speaker']; 
               }
               //application
+              if(($count == 4 && $i == 1) || ($count == 4 && $i == 3)){ echo "<div class='row d-flex align-items-center justify-content-center'>"; }
             ?>
               <div class="col-12 col-md-4 text-center">
                 <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
@@ -164,7 +167,10 @@
                 </div>
               </div>
         <?php 
+            if(($count == 4 && $i == 2) || ($count == 4 && $i == 4)){ echo "</div>"; }
+            $i++; 
           }
+          if($count != 4){ echo "</div>"; }
         } else {
         ?>
           <div class="col-12 col-md-4 text-center">

@@ -105,8 +105,12 @@
         include "config/connection.php"; 
         $sql_isi = "SELECT*FROM event WHERE MONTH(tanggal_event) = $mth ORDER BY tanggal_event ASC"; 
         $query_isi = mysqli_query($conn, $sql_isi); 
+        $count_isi = mysqli_num_rows($query_isi); 
         $today = date("Y-m-d"); 
+        $i = 1; 
+        if($count_isi != 4){ echo "<div class='row d-flex align-items-center justify-content-center'>"; }
         while ($data_isi = mysqli_fetch_assoc($query_isi)){
+            if(($count_isi == 4 && $i == 1) || ($count_isi == 4 && $i == 3)){ echo "<div class='row d-flex align-items-center justify-content-center'>"; }
     ?>
             <div class="col-12 col-md-4 text-center">
                 <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
@@ -125,7 +129,10 @@
                 </div>
             </div>
         <?php
+            if (($count_isi == 4 && $i == 2) || ($count_isi == 4 && $i == 4)){ echo "</div>"; }
+            $i++; 
         }
+        if ($count_isi != 4){ echo "</div>"; }
     }
     //loops
     if(sizeof($arr_month_num) > 0){
@@ -141,11 +148,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="row d-flex align-items-center justify-content-center">
-                    <!-- isi backend -->
-                    <?php isi($arr_month_num[$i]); ?>
-                    <!-- end of backend -->
-                </div>
+                <!-- isi backend -->
+                <?php isi($arr_month_num[$i]); ?>
+                <!-- end of backend -->
             </div>
         </section>
     <?php 

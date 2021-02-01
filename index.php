@@ -159,7 +159,7 @@
                 </div>
             </div>
 
-            <div class="row d-flex align-items-center justify-content-center">
+            <!--<div class="row d-flex align-items-center justify-content-center">-->
                 <!--Agenda -->
             <?php 
             include "config/connection.php"; 
@@ -167,19 +167,28 @@
             $sql = "SELECT*FROM event WHERE tanggal_event >= date(now()) ORDER BY tanggal_event ASC LIMIT 6"; 
             $query = mysqli_query($conn, $sql); 
             $count = mysqli_num_rows($query);
+            $i = 1; 
             if($count > 0){ 
-              while($data = mysqli_fetch_assoc($query)){ ?>
+              if($count != 4){ echo "<div class='row d-flex align-items-center justify-content-center'>"; }
+              while($data = mysqli_fetch_assoc($query)){ 
+                if(($count == 4 && $i == 1) || ($count == 4 && $i == 3)){ echo "<div class='row d-flex align-items-center justify-content-center'>"; }
+                
+                ?>
+                  
                   <div class="col-12 col-md-4 text-center">
                       <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
                           <br><img src="img/uploads/event/<?php echo $data['img_event']; ?>" alt="" style="height:200px;width:200px;">
                           <div class="blog-content">
-                              <br><h3><a href="#"><?php echo $data['judul_event'];?></a></h3>
+                              <br><h3><a href="#"><?php echo $data['judul_event']; ?></a></h3>
                               <br><a href="#"><button type="button" class="btn btn-danger">Daftar Sekarang</button></a>
                           </div>
                       </div>
                   </div>
             <?php
+              if(($count == 4 && $i == 2) || ($count == 4 && $i == 4)){ echo "</div>"; }
+              $i++; 
               }
+              if($count != 4){ echo "</div>"; }
             } else {
             ?>
                 <div class="col-12 col-md-4 text-center">
@@ -207,7 +216,7 @@
                       </div>
                   </div>
             <?php } ?>
-            </div>
+            <!--</div>-->
         </div>
     </section>
     
