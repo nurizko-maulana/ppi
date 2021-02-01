@@ -110,7 +110,7 @@
     ?>
             <div class="col-12 col-md-4 text-center">
                 <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
-                    <img src="img/uploads/event/<?php echo $data_isi['img_event'];?>" alt="" style='width: 200px; height: 200px;'>
+                    <br><img src="img/uploads/event/<?php echo $data_isi['img_event'];?>" alt="" style='width: 200px; height: 200px;'>
                     <div class="blog-content">
                         <h5><a href="#"><?php echo $data_isi['judul_event']; ?></a></h5>
                         <p><?php date_indo($data_isi['tanggal_event'], "full"); ?></p>
@@ -165,25 +165,25 @@
                 <div class='row'>
                     <div class="col-12 col-md-4 text-center">
                         <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
-                            <img src="img/comingsoon/cmg soon.jpeg" alt="" style='width: 200px; height: 200px;'>
+                            <br><img src="img/comingsoon/cmg soon.jpeg" alt="" style='width: 200px; height: 200px;'>
                             <div class="blog-content">
-                                <h5>Coming Soon!</h5>
+                                <br><h5>Coming Soon!</h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-4 text-center">
                         <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
-                            <img src="img/comingsoon/festival.jpeg" alt="" style='width: 200px; height: 200px;'>
+                            <br><img src="img/comingsoon/festival.jpeg" alt="" style='width: 200px; height: 200px;'>
                             <div class="blog-content">
-                                <h5>Coming Soon!</h5>
+                                <br><h5>Coming Soon!</h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-4 text-center">
                         <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
-                            <img src="img/comingsoon/luarnegeri.jpeg" alt="" style='width: 200px; height: 200px;'>
+                            <br><img src="img/comingsoon/luarnegeri.jpeg" alt="" style='width: 200px; height: 200px;'>
                             <div class="blog-content">
-                                <h5>Coming Soon!</h5>
+                                <br><h5>Coming Soon!</h5>
                             </div>
                         </div>
                     </div>   

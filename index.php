@@ -171,10 +171,10 @@
               while($data = mysqli_fetch_assoc($query)){ ?>
                   <div class="col-12 col-md-4 text-center">
                       <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
-                          <img src="img/uploads/event/<?php echo $data['img_event']; ?>" alt="" style="height:200px;width:200px;">
+                          <br><img src="img/uploads/event/<?php echo $data['img_event']; ?>" alt="" style="height:200px;width:200px;">
                           <div class="blog-content">
-                              <h5><a href="#"><?php echo $data['judul_event']; ?></a></h5>
-                              <a href="#"><button type="button" class="btn btn-danger">Daftar Sekarang</button></a>
+                              <br><h3><a href="#"><?php echo $data['judul_event']; ?></a></h3>
+                              <br><a href="#"><button type="button" class="btn btn-danger">Daftar Sekarang</button></a>
                           </div>
                       </div>
                   </div>
@@ -184,25 +184,25 @@
             ?>
                 <div class="col-12 col-md-4 text-center">
                       <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
-                          <img src="img/comingsoon/cmg soon.jpeg" alt="" style="height:200px;width:200px;">
+                          <br><img src="img/comingsoon/cmg soon.jpeg" alt="" style="height:200px;width:200px;">
                           <div class="blog-content">
-                              <h5>Coming Soon!</h5>
+                            <br><h4>Coming Soon!</h4>
                           </div>
                       </div>
                   </div>
                   <div class="col-12 col-md-4 text-center">
                       <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
-                          <img src="img/comingsoon/festival.jpeg" alt="" style="height:200px;width:200px;">
+                        <br><img src="img/comingsoon/festival.jpeg" alt="" style="height:200px;width:200px;">
                           <div class="blog-content">
-                              <h5>Coming Soon!</h5>
+                            <br><h4>Coming Soon!</h4>
                           </div>
                       </div>
                   </div>
                   <div class="col-12 col-md-4 text-center">
                       <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
-                          <img src="img/comingsoon/luarnegeri.jpeg" alt="" style="height:200px;width:200px;">
+                        <br><img src="img/comingsoon/luarnegeri.jpeg" alt="" style="height:200px;width:200px;">
                           <div class="blog-content">
-                              <h5>Coming Soon!</h5>
+                              <br><h4>Coming Soon!</h4>
                           </div>
                       </div>
                   </div>
@@ -269,7 +269,7 @@
                                               <div class="card-up indigo lighten-1"></div>
                                               <!-- Avatar -->
                                               <div class="avatar mx-auto white">
-                                                  <img src="<?php fillpic($data_speaker['img_speaker']); ?>" class="rounded-circle" alt="" style="width:200px; height: 200px;">
+                                                  <br><img src="<?php fillpic($data_speaker['img_speaker']); ?>" class="rounded-circle" alt="" style="width:200px; height: 200px;">
                                               </div>
                                               <!-- Content -->
                                               <div class="card-body text-center">
@@ -297,12 +297,12 @@
                                         <div class="card-up indigo lighten-1"></div>
                                         <!-- Avatar -->
                                         <div class="avatar mx-auto white">
-                                            <img src="img/comingsoon/cmg soon.jpeg" class="rounded-circle" alt="" style="width:200px; height: 200px;">
+                                            <br><img src="img/comingsoon/cmg soon.jpeg" class="rounded-circle" alt="" style="width:200px; height: 200px;"><br>
                                         </div>
                                         <!-- Content -->
                                         <div class="card-body text-center">
                                             <!-- Name -->
-                                            <h4 class="card-title">Coming Soon!</h4>
+                                            <br><h4 class="card-title">Coming Soon!</h4>
                                         </div>
                                     </div>
                                     <!-- Card -->
@@ -316,12 +316,12 @@
                                         <div class="card-up indigo lighten-1"></div>
                                         <!-- Avatar -->
                                         <div class="avatar mx-auto white">
-                                            <img src="img/comingsoon/festival.jpeg" class="rounded-circle" alt="" style="width:200px; height: 200px;">
+                                            <br><img src="img/comingsoon/festival.jpeg" class="rounded-circle" alt="" style="width:200px; height: 200px;"><br>
                                         </div>
                                         <!-- Content -->
                                         <div class="card-body text-center">
                                             <!-- Name -->
-                                            <h4 class="card-title">Coming Soon!</h4>
+                                            <br><h4 class="card-title">Coming Soon!</h4>
                                         </div>
                                     </div>
                                     <!-- Card -->
@@ -335,12 +335,12 @@
                                         <div class="card-up indigo lighten-1"></div>
                                         <!-- Avatar -->
                                         <div class="avatar mx-auto white">
-                                            <img src="img/comingsoon/luarnegeri.jpeg" class="rounded-circle" alt="" style="width:200px; height: 200px;">
+                                            <br><img src="img/comingsoon/luarnegeri.jpeg" class="rounded-circle" alt="" style="width:200px; height: 200px;"><br>
                                         </div>
                                         <!-- Content -->
                                         <div class="card-body text-center">
                                             <!-- Name -->
-                                            <h4 class="card-title">Coming Soon!</h4>
+                                            <br><h4 class="card-title">Coming Soon!</h4>
                                         </div>
                                     </div>
                                     <!-- Card -->

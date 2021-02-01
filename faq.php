@@ -98,7 +98,7 @@
         >
         <?php 
         include "config/connection.php"; 
-        $sql = "SELECT*FROM faq WHERE id_faq=0"; 
+        $sql = "SELECT*FROM faq"; 
         $query = mysqli_query($conn, $sql); 
         $count = mysqli_num_rows($query); 
         if($count > 0){

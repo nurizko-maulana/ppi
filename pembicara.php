@@ -156,7 +156,7 @@
             ?>
               <div class="col-12 col-md-4 text-center">
                 <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
-                    <img src="img/uploads/speaker/<?php echo $data['img_speaker']; ?>" alt="" style="height:200px;width:200px; class="mb-2" loading="lazy">
+                    <br><img src="img/uploads/speaker/<?php echo $data['img_speaker']; ?>" alt="" style="height:200px;width:200px; class="mb-2" loading="lazy">
                     <div class='blog-content'>
                       <span><?php echo $data['nama_speaker']; ?></span>
                       <p class='text-secondary'><?php echo $note; ?></p>
@@ -169,25 +169,25 @@
         ?>
           <div class="col-12 col-md-4 text-center">
             <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
-                <img src="img/comingsoon/festival.jpeg" alt="" style="height:200px;width:200px; class="mb-2" loading="lazy">
+                <br><img src="img/comingsoon/festival.jpeg" alt="" style="height:200px;width:200px; class="mb-2" loading="lazy">
                 <div class='blog-content'>
-                  <span>Coming Soon!</span>
+                  <br><span>Coming Soon!</span>
                 </div>
             </div>
           </div>
           <div class="col-12 col-md-4 text-center">
             <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
-                <img src="img/comingsoon/luarnegeri.jpeg" alt="" style="height:200px;width:200px; class="mb-2" loading="lazy">
+              <br><img src="img/comingsoon/luarnegeri.jpeg" alt="" style="height:200px;width:200px; class="mb-2" loading="lazy">
                 <div class='blog-content'>
-                  <span>Coming Soon!</span>
+                  <br><span>Coming Soon!</span>
                 </div>
             </div>
           </div>
           <div class="col-12 col-md-4 text-center">
             <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
-                <img src="img/comingsoon/cmg soon.jpeg" alt="" style="height:200px;width:200px; class="mb-2" loading="lazy">
+              <br><img src="img/comingsoon/cmg soon.jpeg" alt="" style="height:200px;width:200px; class="mb-2" loading="lazy">
                 <div class='blog-content'>
-                  <span>Coming Soon!</span>
+                  <br><span>Coming Soon!</span>
                 </div>
             </div>
           </div>
