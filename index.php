@@ -173,12 +173,12 @@
                       <div class="single-blog-area wow fadeInUp" data-wow-delay="0.5s">
                           <br><img src="img/uploads/event/<?php echo $data['img_event']; ?>" alt="" style="height:200px;width:200px;">
                           <div class="blog-content">
-                              <br><h3><a href="#"><?php echo $data['judul_event']; ?></a></h3>
+                              <br><h3><a href="#"><?php echo $data['judul_event'];?></a></h3>
                               <br><a href="#"><button type="button" class="btn btn-danger">Daftar Sekarang</button></a>
                           </div>
                       </div>
                   </div>
-            <?php 
+            <?php
               }
             } else {
             ?>
@@ -221,7 +221,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row d-flex align-items-center justify-content-center">
                 <div class="col-12">
                     <div class="carousel carousel-showmanymoveone slide multi-item-carousel" id="theCarousel">
                         <div class="carousel-inner">
@@ -259,8 +259,9 @@
                                   } else {
                                       $y = ""; 
                                   }
+                                  
                               ?>
-
+                                  
                                   <div class="item <?php echo $y; ?>">
                                       <div class="col-12 col-md-4">
                                           <!-- Card -->
@@ -284,9 +285,39 @@
                                           <!-- Card -->
                                       </div>
                                   </div>
+                                  <?php if ($count_speaker == 1){ ?>
+                                  <div class="item">
+                                    <div class="col-12 col-md-4">
+                                        <!-- Card -->
+                                        <div class="card testimonial-card">
+                                            <!-- Background color -->
+                                            <div class="card-up indigo lighten-1"></div>
+                                            <!-- Avatar -->
+                                            <div class="avatar mx-auto white">
+                                                <br><img src="<?php fillpic($data_speaker['img_speaker']); ?>" class="rounded-circle" alt="" style="width:200px; height: 200px;">
+                                            </div>
+                                            <!-- Content -->
+                                            <div class="card-body text-center">
+                                                <!-- Name -->
+                                                <h4 class="card-title"><?php fillname($data_speaker['nama_speaker']); ?></h4>
+                                                <hr>
+                                                <!-- Quotation -->
+                                                <p> <?php fill($data_speaker['lingkup_jurusan']); ?></p>
+                                                <p> <?php fill($data_speaker['ppi_speaker']); ?></p>
+                                            </div>
+                                        </div>
+                                        <!-- Card -->
+                                    </div>
+                                </div>
                           <?php 
+                                  }
                                   $x++;
                               }
+                          ?>
+                                </div>
+                                <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                                <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                          <?php 
                             } else {
                           ?>
                               <div class="item active">
@@ -346,11 +377,12 @@
                                     <!-- Card -->
                                 </div>
                               </div>
+                            </div>
+                            <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                            <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
                                   
                             <?php } ?>
-                        </div>
-                        <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-                        <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                        
                     </div>
                 </div>
             </div>
